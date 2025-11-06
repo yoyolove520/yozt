@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前端开发学习指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #492b65 0%, #597bbb 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tech-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            color: white;
+            text-align: center;
+        }
+        
+        .html .card-header {
+            background-color: #e93994;
+        }
+        
+        .css .card-header {
+            background-color: #264de4;
+        }
+        
+        .js .card-header {
+            background-color: #f7df1e;
+            color: #333;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .card-body h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .code-example {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .try-button {
+            display: inline-block;
+            background-color: #4a5568;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .try-button:hover {
+            background-color: #2d3748;
+        }
+        
+        .resources {
+            margin-top: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resources h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        
+        .resource-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .resource-item {
+            padding: 1rem;
+            border-left: 4px solid #6a11cb;
+            background-color: #f8f9fa;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background-color: #2c3e50;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>前端开发学习指南</h1>
+            <p class="subtitle">掌握HTML、CSS和JavaScript，构建现代化网站和Web应用</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="tech-grid">
+            <!-- HTML卡片 -->
+            <div class="tech-card html">
+                <div class="card-header">
+                    <h2>HTML</h2>
+                    <p>网页的结构骨架</p>
+                </div>
+                <div class="card-body">
+                    <h3>什么是HTML？</h3>
+                    <p>HTML（超文本标记语言）是构建网页的基础，用于定义网页的结构和内容。</p>
+                    
+                    <h3>基础语法</h3>
+                    <div class="code-example">
+                        &lt;!DOCTYPE html&gt;<br>
+                        &lt;html&gt;<br>
+                        &nbsp;&nbsp;&lt;head&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;页面标题&lt;/title&gt;<br>
+                        &nbsp;&nbsp;&lt;/head&gt;<br>
+                        &nbsp;&nbsp;&lt;body&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;这是一个标题&lt;/h1&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;这是一个段落&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&lt;/body&gt;<br>
+                        &lt;/html&gt;
+                    </div>
+                    
+                    <button class="try-button" onclick="tryHTML()">尝试HTML示例</button>
+                </div>
+            </div>
+            
+            <!-- CSS卡片 -->
+            <div class="tech-card css">
+                <div class="card-header">
+                    <h2>CSS</h2>
+                    <p>网页的样式和布局</p>
+                </div>
+                <div class="card-body">
+                    <h3>什么是CSS？</h3>
+                    <p>CSS（层叠样式表）用于控制网页的外观和布局，包括颜色、字体、间距等。</p>
+                    
+                    <h3>基础语法</h3>
+                    <div class="code-example">
+                        /* 选择器 */<br>
+                        h1 {<br>
+                        &nbsp;&nbsp;color: blue;<br>
+                        &nbsp;&nbsp;font-size: 24px;<br>
+                        &nbsp;&nbsp;text-align: center;<br>
+                        }<br><br>
+                        
+                        .container {<br>
+                        &nbsp;&nbsp;width: 80%;<br>
+                        &nbsp;&nbsp;margin: 0 auto;<br>
+                        &nbsp;&nbsp;padding: 20px;<br>
+                        }
+                    </div>
+                    
+                    <button class="try-button" onclick="tryCSS()">尝试CSS示例</button>
+                </div>
+            </div>
+            
+            <!-- JavaScript卡片 -->
+            <div class="tech-card js">
+                <div class="card-header">
+                    <h2>JavaScript</h2>
+                    <p>网页的交互行为</p>
+                </div>
+                <div class="card-body">
+                    <h3>什么是JavaScript？</h3>
+                    <p>JavaScript是一种编程语言，用于为网页添加交互功能，如表单验证、动画效果等。</p>
+                    
+                    <h3>基础语法</h3>
+                    <div class="code-example">
+                        // 变量声明<br>
+                        let message = "Hello, World!";<br>
+                        const PI = 3.14;<br><br>
+                        
+                        // 函数定义<br>
+                        function greet(name) {<br>
+                        &nbsp;&nbsp;return "Hello, " + name + "!";<br>
+                        }<br><br>
+                        
+                        // 事件处理<br>
+                        document.getElementById("myButton").addEventListener("click", function() {<br>
+                        &nbsp;&nbsp;alert("按钮被点击了!");<br>
+                        });
+                    </div>
+                    
+                    <button class="try-button" onclick="tryJS()">尝试JavaScript示例</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="resources">
+            <h2>学习资源推荐</h2>
+            <div class="resource-list">
+                <div class="resource-item">
+                    <a href="https://developer.mozilla.org/zh-CN/" target="_blank"><h3>MDN Web Docs</h3>
+                    <p>最权威的Web技术文档，包含HTML、CSS和JavaScript的完整参考。</p></a>
+                </div>
+                    
+                <div class="resource-item">
+                   <a href="https://www.freecodecamp.org/" target="_blank"> <h3>freeCodeCamp</h3>
+                    <p>免费的交互式编程学习平台，提供完整的前端开发课程。</p></a>
+                </div>
+
+                <div class="resource-item">
+                    <a href="https://www.codecademy.com/" target="_blank"><h3>Codecademy</h3>
+                    <p>交互式编程学习网站，适合初学者上手实践。</p></a>
+                </div>
+
+                <div class="resource-item">
+                    <a href="https://www.w3school.com.cn/" target="_blank"><h3>W3Schools</h3>
+                    <p>简单易懂的Web技术教程和参考，适合快速查找语法。</p></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>前端开发学习指南 &copy; 2025 - 开始你的编程之旅！</p>
+    </footer>
+
+    <script>
+        function tryHTML() {
+            alert("HTML示例：\n\n<!DOCTYPE html>\n<html>\n<head>\n  <title>我的网页</title>\n</head>\n<body>\n  <h1>欢迎来到我的网页</h1>\n  <p>这是我的第一个HTML页面。</p>\n</body>\n</html>");
+        }
+        
+        function tryCSS() {
+            alert("CSS示例：\n\n/* 将所有段落文字设为蓝色 */\np {\n  color: blue;\n}\n\n/* 为标题添加阴影效果 */\nh1 {\n  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);\n}\n\n/* 创建一个响应式容器 */\n.container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 20px;\n}");
+        }
+        
+        function tryJS() {
+            const name = prompt("请输入你的名字：");
+            if (name) {
+                alert(`Hello, ${name}! 欢迎学习JavaScript！`);
+            }
+        }
+    </script>
+</body>
+</html>
